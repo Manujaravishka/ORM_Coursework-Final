@@ -8,11 +8,11 @@ import java.util.List;
 public class CourseDto {
     private int courseID;
     private String courseName;
-    private LocalDate Duration;
+    private String Duration;
     private BigDecimal fee;
     private List<StudentDto> studentList;
 
-    public CourseDto(int courseID, String courseName, LocalDate duration, BigDecimal fee) {
+    public CourseDto(int courseID, String courseName,String duration, BigDecimal fee)  {
         this.courseID = courseID;
         this.courseName = courseName;
         Duration = duration;
@@ -38,11 +38,11 @@ public class CourseDto {
         this.courseName = courseName;
     }
 
-    public LocalDate getDuration() {
+    public String getDuration() {
         return Duration;
     }
 
-    public void setDuration(LocalDate duration) {
+    public void setDuration(String duration) {
         Duration = duration;
     }
 

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class LessonDto {
-    private String lessonId;
+    private int lessonId;
     private String lessonName;
     private LocalDate lessonDate;
     private LocalTime lessonStartTime;

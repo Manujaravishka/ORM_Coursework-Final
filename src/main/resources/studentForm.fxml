@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane fx:id="studentForm" prefHeight="650.0" prefWidth="800.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.controller.StudentFormController">
+
+    <children>
+        <!-- Header -->
+        <HBox layoutX="40.0" layoutY="25.0" spacing="15.0"
+              style="-fx-background-color: rgba(0,0,0,0.7); -fx-background-radius: 15; -fx-padding: 15;">
+            <children>
+                <ImageView fitHeight="80" fitWidth="80" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../../Downloads/ORM_Course_work/src/main/resources/assest/icons8-student-48.png"/>
+                    </image>
+                </ImageView>
+
+                <Label text="Student Management" textFill="white">
+                    <font>
+                        <Font name="Arial Black" size="28.0"/>
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+
+        <!-- Input Fields Card -->
+        <VBox layoutX="50.0" layoutY="130.0" spacing="18.0"
+              style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+            <children>
+                <HBox spacing="15.0">
+                    <children>
+                        <Label text="ID :" prefWidth="120.0"/>
+                        <TextField fx:id="txtId" onAction="#txtIdOnAction" onKeyReleased="#txtIdKeyAction"
+                                   prefWidth="220.0" style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"/>
+                        <Label text="Registration Date :" prefWidth="150.0"/>
+                        <DatePicker fx:id="registerDatePicker" prefWidth="180.0" style="-fx-background-radius: 10;"/>
+                    </children>
+                </HBox>
+
+                <HBox spacing="15.0">
+                    <children>
+                        <Label text="Name :" prefWidth="120.0"/>
+                        <TextField fx:id="txtName" onAction="#txtNameOnAction" onKeyReleased="#txtNameKeyAction"
+                                   prefWidth="300.0" style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"/>
+                    </children>
+                </HBox>
+
+                <HBox spacing="15.0">
+                    <children>
+                        <Label text="Address :" prefWidth="120.0"/>
+                        <TextField fx:id="txtAddress" onAction="#txtAddressOnAction" onKeyReleased="#txtAddressKeyAction"
+                                   prefWidth="300.0" style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"/>
+                    </children>
+                </HBox>
+
+                <HBox spacing="15.0">
+                    <children>
+                        <Label text="Tel :" prefWidth="120.0"/>
+                        <TextField fx:id="txtTel" onKeyReleased="#txtTelKeyAction"
+                                   prefWidth="300.0" style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <!-- Buttons -->
+        <HBox layoutX="320.0" layoutY="380.0" spacing="20.0">
+            <children>
+                <JFXButton text="Clear" fx:id="btnClear" onAction="#btnClearOnAction"
+                           prefWidth="90.0" style="-fx-background-color: #95a5a6; -fx-background-radius: 12; -fx-text-fill: white;"/>
+                <JFXButton text="Update" fx:id="btnUpdate" onAction="#btnUpdateOnAction"
+                           prefWidth="90.0" style="-fx-background-color: #3498db; -fx-background-radius: 12; -fx-text-fill: white;"/>
+                <JFXButton text="Delete" fx:id="btnDelete" onAction="#btnDeleteOnAction"
+                           prefWidth="90.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 12; -fx-text-fill: white;"/>
+                <JFXButton text="Save" fx:id="btnSave" onAction="#btnSaveOnAction"
+                           prefWidth="90.0" style="-fx-background-color: #27ae60; -fx-background-radius: 12; -fx-text-fill: white;"/>
+            </children>
+        </HBox>
+
+        <!-- Table -->
+        <TableView fx:id="tblStudent" layoutX="50.0" layoutY="440.0"
+                   onMouseClicked="#tblStudentOnClickAction"
+                   prefHeight="180.0" prefWidth="700.0"
+                   style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #DDD;">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="100.0"/>
+                <TableColumn fx:id="colName" text="Name" prefWidth="150.0"/>
+                <TableColumn fx:id="colAddress" text="Address" prefWidth="200.0"/>
+                <TableColumn fx:id="colTel" text="Tel" prefWidth="120.0"/>
+                <TableColumn fx:id="colRegisterDate" text="Register Date" prefWidth="130.0"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

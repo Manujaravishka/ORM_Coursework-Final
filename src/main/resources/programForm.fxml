@@ -8,12 +8,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="650.0" prefWidth="800.0"
-            style="-fx-background-color: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);"
+            style="-fx-background-color: linear-gradient(to bottom right, #FAD961, #F76B1C);"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="lk.ijse.controller.CourseFormController">
@@ -21,13 +21,14 @@
     <children>
         <!-- Header -->
         <HBox layoutX="40.0" layoutY="25.0" spacing="15.0"
-              style="-fx-background-color: rgba(0,0,0,0.75); -fx-background-radius: 15; -fx-padding: 15;">
+              style="-fx-background-color: rgba(0,0,0,0.7); -fx-background-radius: 15; -fx-padding: 15;">
             <children>
-                <ImageView fitHeight="70.0" fitWidth="70.0" preserveRatio="true">
+                <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@asset/icons8-student-48.png"/>
                     </image>
                 </ImageView>
+
                 <Label text="Program Management" textFill="white">
                     <font>
                         <Font name="Arial Black" size="28.0"/>
@@ -37,71 +38,79 @@
         </HBox>
 
         <!-- Input Fields Card -->
-        <VBox layoutX="60.0" layoutY="130.0" spacing="18.0"
-              style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25;
-                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+        <VBox layoutX="50.0" layoutY="130.0" spacing="18.0"
+              style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 5);">
             <children>
-                <!-- Row 1: ID + Name -->
-                <HBox spacing="25.0">
+                <!-- ID -->
+                <HBox spacing="15.0">
                     <children>
-                        <Label text="ID :" prefWidth="100.0"/>
-                        <TextField fx:id="txtId" prefWidth="200.0" editable="false"
-                                   style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"
-                                   onAction="#txtIdOnAction" onKeyReleased="#txtIdKeyAction"/>
-                        <Label text="Name :" prefWidth="100.0"/>
-                        <TextField fx:id="txtName" prefWidth="250.0"
-                                   style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"
-                                   onAction="#txtNameOnAction" onKeyReleased="#txtNameKeyAction"/>
+                        <Label text="ID :" prefWidth="120.0"/>
+                        <TextField fx:id="txtId" editable="false"
+                                   onAction="#txtIdOnAction" onKeyReleased="#txtIdKeyAction"
+                                   prefWidth="250.0"
+                                   style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"/>
                     </children>
                 </HBox>
 
-                <!-- Row 2: Duration + Fee -->
-                <HBox spacing="25.0">
+                <!-- Program Name -->
+                <HBox spacing="15.0">
                     <children>
-                        <Label text="Duration :" prefWidth="100.0"/>
-                        <TextField fx:id="txtDuration" prefWidth="200.0"
-                                   style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"
-                                   onAction="#txtDurationOnAction" onKeyReleased="#txtDurationKeyAction"/>
-                        <Label text="(Months)" style="-fx-text-fill: #888888;"/>
+                        <Label text="Name :" prefWidth="120.0"/>
+                        <TextField fx:id="txtName"
+                                   onAction="#txtNameOnAction" onKeyReleased="#txtNameKeyAction"
+                                   prefWidth="400.0"
+                                   style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"/>
+                    </children>
+                </HBox>
 
-                        <Label text="Fee :" prefWidth="100.0"/>
-                        <TextField fx:id="txtFee" prefWidth="200.0"
-                                   style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"
-                                   onKeyReleased="#txtFeeKeyAction"/>
-                        <Label text="(LKR)" style="-fx-text-fill: #888888;"/>
+                <!-- Duration -->
+                <HBox spacing="15.0">
+                    <children>
+                        <Label text="Duration (Months):" prefWidth="150.0"/>
+                        <TextField fx:id="txtDuration"
+                                   onAction="#txtDurationOnAction" onKeyReleased="#txtDurationKeyAction"
+                                   prefWidth="150.0"
+                                   style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"/>
+                    </children>
+                </HBox>
+
+                <!-- Fee -->
+                <HBox spacing="15.0">
+                    <children>
+                        <Label text="Fee (LKR):" prefWidth="150.0"/>
+                        <TextField fx:id="txtFee"
+                                   onKeyReleased="#txtFeeKeyAction"
+                                   prefWidth="200.0"
+                                   style="-fx-background-radius: 10; -fx-border-color: #CCCCCC; -fx-padding: 6;"/>
                     </children>
                 </HBox>
             </children>
         </VBox>
 
         <!-- Buttons -->
-        <HBox layoutX="280.0" layoutY="360.0" spacing="20.0">
+        <HBox layoutX="280.0" layoutY="380.0" spacing="20.0">
             <children>
                 <JFXButton text="Clear" fx:id="btnClear" onAction="#btnClearOnAction"
-                           prefWidth="90.0"
-                           style="-fx-background-color: #95a5a6; -fx-background-radius: 12; -fx-text-fill: white;"/>
+                           prefWidth="90.0" style="-fx-background-color: #95a5a6; -fx-background-radius: 12; -fx-text-fill: white;"/>
                 <JFXButton text="Update" fx:id="btnUpdate" onAction="#btnUpdateOnAction"
-                           prefWidth="90.0"
-                           style="-fx-background-color: #3498db; -fx-background-radius: 12; -fx-text-fill: white;"/>
+                           prefWidth="90.0" style="-fx-background-color: #3498db; -fx-background-radius: 12; -fx-text-fill: white;"/>
                 <JFXButton text="Delete" fx:id="btnDelete" onAction="#btnDeleteOnAction"
-                           prefWidth="90.0"
-                           style="-fx-background-color: #e74c3c; -fx-background-radius: 12; -fx-text-fill: white;"/>
+                           prefWidth="90.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 12; -fx-text-fill: white;"/>
                 <JFXButton text="Save" fx:id="btnSave" onAction="#btnSaveOnAction"
-                           prefWidth="90.0"
-                           style="-fx-background-color: #27ae60; -fx-background-radius: 12; -fx-text-fill: white;"/>
+                           prefWidth="90.0" style="-fx-background-color: #27ae60; -fx-background-radius: 12; -fx-text-fill: white;"/>
             </children>
         </HBox>
 
         <!-- Table -->
-        <TableView fx:id="tblProgram" layoutX="60.0" layoutY="430.0"
+        <TableView fx:id="tblProgram" layoutX="50.0" layoutY="440.0"
                    onMouseClicked="#tblProgramOnClickAction"
-                   prefHeight="200.0" prefWidth="680.0"
+                   prefHeight="180.0" prefWidth="700.0"
                    style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #DDD;">
             <columns>
-                <TableColumn fx:id="colId" text="ID" prefWidth="120.0"/>
-                <TableColumn fx:id="colProgramName" text="Program Name" prefWidth="200.0"/>
-                <TableColumn fx:id="colDuration" text="Duration" prefWidth="180.0"/>
-                <TableColumn fx:id="colFee" text="Fee (LKR)" prefWidth="160.0"/>
+                <TableColumn fx:id="colId" prefWidth="120.0" text="ID"/>
+                <TableColumn fx:id="colProgramName" prefWidth="200.0" text="Program Name"/>
+                <TableColumn fx:id="colDuration" prefWidth="160.0" text="Duration"/>
+                <TableColumn fx:id="colFee" prefWidth="160.0" text="Fee (LKR)"/>
             </columns>
         </TableView>
     </children>

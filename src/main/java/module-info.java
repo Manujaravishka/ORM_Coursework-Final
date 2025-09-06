@@ -3,6 +3,7 @@ module lk.ijse.orm_final_course_work {
     requires javafx.fxml;
     requires jakarta.persistence;
     requires lombok;
+    requires jbcrypt;
 
 
     exports lk.ijse.orm_final_course_work;

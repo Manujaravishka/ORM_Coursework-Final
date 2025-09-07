@@ -4,6 +4,8 @@ module lk.ijse.orm_final_course_work {
     requires jakarta.persistence;
     requires lombok;
     requires jbcrypt;
+    requires mysql.connector.j;
+    requires org.hibernate.orm.core;
 
 
     exports lk.ijse.orm_final_course_work;

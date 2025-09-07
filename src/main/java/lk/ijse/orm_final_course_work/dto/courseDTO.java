@@ -1,5 +1,7 @@
 package lk.ijse.orm_final_course_work.dto;
 
+import lk.ijse.orm_final_course_work.entity.Payment;
+
 import java.util.List;
 
 public class courseDTO {

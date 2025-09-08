@@ -1,4 +1,4 @@
 package lk.ijse.orm_final_course_work.bo;
 
-public interface SuprerBO {
+public interface SuperBO {
 }

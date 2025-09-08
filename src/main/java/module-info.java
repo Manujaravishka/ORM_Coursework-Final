@@ -6,6 +6,7 @@ module lk.ijse.orm_final_course_work {
     requires jbcrypt;
     requires mysql.connector.j;
     requires org.hibernate.orm.core;
+    requires com.jfoenix;
 
 
     exports lk.ijse.orm_final_course_work;

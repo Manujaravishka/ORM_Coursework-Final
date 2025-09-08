@@ -1,6 +1,5 @@
 package lk.ijse.orm_final_course_work.controller;
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,7 +24,8 @@ import java.time.format.TextStyle;
 import java.util.List;
 import java.util.Locale;
 
-public class DashboardController {
+public class Dashboard2Controller {
+
     @FXML
     private BarChart<String, Number> BarChartStu;
 
@@ -138,7 +138,7 @@ public class DashboardController {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        lblIncom.setOpacity(1);   // fully visible
+
 
 
         try {

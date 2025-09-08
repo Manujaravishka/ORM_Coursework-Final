@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainFormController {
+public class MainForm2Controller {
 
     @FXML
     private JFXButton btnDashboard;
@@ -49,7 +49,7 @@ public class MainFormController {
     public void initialize() {
         try {
             // Default load dashboard
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/loginForm2.fxml")));
+            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/dashboard.fxml")));
             highlightButton(btnDashboard);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -58,7 +58,7 @@ public class MainFormController {
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) {
-        loadForm("/loginForm2.fxml", btnDashboard);
+        loadForm("/dashboard.fxml", btnDashboard);
     }
 
     @FXML
@@ -71,15 +71,8 @@ public class MainFormController {
         loadForm("/studentForm.fxml", btnStudent);
     }
 
-    @FXML
-    void btnViewOnAction(ActionEvent event) {
-        loadForm("/viewAllForm.fxml", btnView);
-    }
 
-    @FXML
-    void btnSettingOnAction(ActionEvent event) {
-        loadForm("/settingForm.fxml", btnSetting);
-    }
+
 
     @FXML
     void btnInstructorOnAction(ActionEvent event) {
@@ -130,10 +123,24 @@ public class MainFormController {
         btnProgram.setStyle(style);
         btnStudent.setStyle(style);
 
-        btnSetting.setStyle(style);
+
         btnInstructor.setStyle(style);
         btnPayment.setStyle(style);
         btnLessons.setStyle(style);
     }
 
+
+    public void btnViewOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnSettingOnAction(ActionEvent actionEvent) {
+        loadForm("/settingForm.fxml", btnSetting);
+    }
+
+
+
+
+
+
 }
+

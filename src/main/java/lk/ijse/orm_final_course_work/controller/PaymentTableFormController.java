@@ -12,7 +12,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import lk.ijse.orm_final_course_work.bo.BOFactory;
 import lk.ijse.orm_final_course_work.bo.custom.PaymentBO;
 import lk.ijse.orm_final_course_work.dto.PaymentDTO;
-import lk.ijse.orm_final_course_work.tm.PaymentTM;
+import lk.ijse.orm_final_course_work.tdm.PaymentTM;
 
 import java.util.List;
 

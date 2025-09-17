@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="courseForm" prefHeight="630.0" prefWidth="770.0" style="-fx-background-color: #E6F7FF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CouseFormController">
+<AnchorPane fx:id="courseForm" prefHeight="630.0" prefWidth="770.0" style="-fx-background-color: #E6F7FF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_final_course_work.controller.CourseFormController">
     <children>
         <Label layoutX="113.0" layoutY="46.0" text="Course Manage ">
             <font>

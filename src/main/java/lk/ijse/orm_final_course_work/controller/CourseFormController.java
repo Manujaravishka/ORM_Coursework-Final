@@ -151,16 +151,16 @@ public class CourseFormController {
 
     public boolean isValied() {
         // txtId skip (auto-generated)
-        if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtName)) return false;
-        if (!Regex.setTextColor(lk.ijse.util.TextField.MONTH, txtDuration)) return false;
-        if (!Regex.setTextColor(lk.ijse.util.TextField.PRICE, txtFee)) return false;
+        if (!Regex.setTextColor(lk.ijse.orm_final_course_work.util.TextField.NAME, txtName)) return false;
+        if (!Regex.setTextColor(lk.ijse.orm_final_course_work.util.TextField.MONTH, txtDuration)) return false;
+        if (!Regex.setTextColor(lk.ijse.orm_final_course_work.util.TextField.PRICE, txtFee)) return false;
         return true;
     }
 
     @FXML void txtIdKeyAction(KeyEvent event) {}
-    @FXML void txtNameKeyAction(KeyEvent event) { Regex.setTextColor(lk.ijse.util.TextField.NAME, txtName);}
-    @FXML void txtDurationKeyAction(KeyEvent event) { Regex.setTextColor(lk.ijse.util.TextField.MONTH, txtDuration);}
-    @FXML void txtFeeKeyAction(KeyEvent event) { Regex.setTextColor(lk.ijse.util.TextField.PRICE, txtFee);}
+    @FXML void txtNameKeyAction(KeyEvent event) { Regex.setTextColor(lk.ijse.orm_final_course_work.util.TextField.NAME, txtName);}
+    @FXML void txtDurationKeyAction(KeyEvent event) { Regex.setTextColor(lk.ijse.orm_final_course_work.util.TextField.MONTH, txtDuration);}
+    @FXML void txtFeeKeyAction(KeyEvent event) { Regex.setTextColor(lk.ijse.orm_final_course_work.util.TextField.PRICE, txtFee);}
 
     public void txtDurationOnAction(ActionEvent actionEvent) {
     }

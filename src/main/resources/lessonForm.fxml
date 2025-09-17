@@ -9,7 +9,7 @@
             style="-fx-background-color: #FFE5B4;"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.controller.LessonFormController">
+            fx:controller="lk.ijse.orm_final_course_work.controller.LessonFormController">
 
 
     <!-- Header -->

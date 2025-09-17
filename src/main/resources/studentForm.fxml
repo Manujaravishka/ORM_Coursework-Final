@@ -17,7 +17,7 @@
             style="-fx-background-color: linear-gradient(to bottom right, #FFDEE9, #B5FFFC);"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.controller.StudentFormController">
+            fx:controller="lk.ijse.orm_final_course_work.controller.StudentFormController">
 
     <children>
         <!-- Header -->

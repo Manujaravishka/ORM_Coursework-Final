@@ -1,16 +1,12 @@
 package lk.ijse.orm_final_course_work.db;
 
-import lk.ijse.orm_final_course_work.entity.course;
-import lk.ijse.orm_final_course_work.entity.Payment;
-import lk.ijse.orm_final_course_work.entity.User;
-import lk.ijse.orm_final_course_work.entity.Instructor;
+import lk.ijse.orm_final_course_work.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
 
-import lk.ijse.orm_final_course_work.entity.Lesson;
-
-import java.io.FileInputStream;
 import java.util.Properties;
 
 public class FactoryConfiguration {
@@ -20,20 +16,30 @@ public class FactoryConfiguration {
 
     private FactoryConfiguration() {
         try {
+            // 🔹 Load properties from resources folder
             Properties properties = new Properties();
-            FileInputStream input = new FileInputStream("src/main/resources/hibernate.properties");
-            properties.load(input);
+            properties.load(
+                    getClass().getClassLoader().getResourceAsStream("hibernate.properties")
+            );
 
+            // 🔹 Hibernate Configuration
             Configuration configuration = new Configuration();
             configuration.setProperties(properties)
                     .addAnnotatedClass(User.class)
                     .addAnnotatedClass(course.class)
                     .addAnnotatedClass(Instructor.class)
                     .addAnnotatedClass(Lesson.class)
-                    .addAnnotatedClass(Payment.class);
+                    .addAnnotatedClass(Payment.class)
+                    .addAnnotatedClass(Student.class);
 
-            sessionFactory = configuration.buildSessionFactory();
-            System.out.println("Hibernate SessionFactory created successfully, DB should be ready!");
+            // 🔹 Build SessionFactory
+            ServiceRegistry serviceRegistry =
+                    new StandardServiceRegistryBuilder()
+                            .applySettings(configuration.getProperties())
+                            .build();
+
+            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            System.out.println("✅ Hibernate SessionFactory created successfully, DB is ready!");
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Hibernate configuration failed", e);

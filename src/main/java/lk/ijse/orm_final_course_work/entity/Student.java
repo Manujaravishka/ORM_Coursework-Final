@@ -1,24 +1,20 @@
 package lk.ijse.orm_final_course_work.entity;
 
-
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "students")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "students")
-
-
 public class Student {
+
     @Id
     private String studentId;
 
@@ -28,12 +24,11 @@ public class Student {
     private Date registrationDate;
     private int someInt;
 
-
     @ManyToMany
     @JoinTable(
             name = "student_course",
             joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id")
+            inverseJoinColumns = @JoinColumn(name = "program_id", referencedColumnName = "programId")
     )
     private List<course> courses = new ArrayList<>();
 
@@ -43,7 +38,7 @@ public class Student {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lesson> lessons = new ArrayList<>();
 
-
+    // Constructors
     public Student(String studentId, String name, String address, Long tel, Date registrationDate) {
         this.studentId = studentId;
         this.name = name;
@@ -55,7 +50,6 @@ public class Student {
         this.lessons = new ArrayList<>();
         this.payments = new ArrayList<>();
     }
-
 
     public Student(String studentId) {
         this.studentId = studentId;

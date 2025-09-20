@@ -1,8 +1,9 @@
 package lk.ijse.orm_final_course_work.entity;
 
-
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +12,10 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Instructor {
+
     @Id
-    private String instructorId;  // String ID, manually assign
+    private String instructorId;  // String ID, manually assigned
 
     @Column(nullable = false)
     private String name;
@@ -22,13 +23,13 @@ public class Instructor {
     @Column(nullable = false)
     private String specialization;
 
-    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<course> courses = new ArrayList<>();
 
-    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lesson> lessons = new ArrayList<>();
 
-
+    // Constructor with only ID
     public Instructor(String instructorId) {
         this.instructorId = instructorId;
         this.name = "";

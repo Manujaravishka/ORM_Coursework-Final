@@ -18,6 +18,7 @@ import lk.ijse.orm_final_course_work.exception.InvalidCredentialsException;
 import lk.ijse.orm_final_course_work.util.PasswordStorage;
 
 import java.io.IOException;
+import java.io.InvalidClassException;
 
 public class LoginFormController {
     @FXML
@@ -32,7 +33,8 @@ public class LoginFormController {
     @FXML
     private AnchorPane loginForm;
 
-    LoginBO loginBO = (LoginBO) BOFactory.getBO(BOFactory.BOType.LOGIN);
+    LoginBO loginBO = (LoginBO) BOFactory.getBO(BOFactory.BOType.LOGIN); // cast to LoginBO
+
 
     public static UserDTO userDTO;
 
@@ -50,6 +52,8 @@ public class LoginFormController {
                 }
             } catch (InvalidCredentialsException e) {
                 ExceptionHandler.handleException(e);
+            } catch (InvalidClassException e) {
+                throw new RuntimeException(e);
             }
         } else {
             new Alert(Alert.AlertType.WARNING, "Please Enter All Fields !!").show();

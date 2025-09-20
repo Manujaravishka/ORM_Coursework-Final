@@ -1,11 +1,9 @@
 package lk.ijse.orm_final_course_work.entity;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +12,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class course {
 
     @Id
@@ -40,14 +37,13 @@ public class course {
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
-    // Existing constructor
+    // Constructors
     public course(String programId, String programName, int duration, double fee) {
         this.programId = programId;
         this.programName = programName;
         this.duration = duration;
         this.fee = fee;
     }
-
 
     public course(String programId) {
         this.programId = programId;

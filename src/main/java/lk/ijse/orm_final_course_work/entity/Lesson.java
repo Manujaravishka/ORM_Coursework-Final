@@ -1,8 +1,9 @@
 package lk.ijse.orm_final_course_work.entity;
 
-
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.sql.Timestamp;
 
 @Entity
@@ -10,21 +11,18 @@ import java.sql.Timestamp;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Lesson {
+
     @Id
     private String lessonId;
-
 
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
 
-
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name = "course_id", referencedColumnName = "programId")
     private course course;
-
 
     @ManyToOne
     @JoinColumn(name = "instructor_id")

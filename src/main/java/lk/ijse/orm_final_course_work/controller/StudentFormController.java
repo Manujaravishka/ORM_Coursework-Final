@@ -1,6 +1,5 @@
 package lk.ijse.orm_final_course_work.controller;
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,43 +25,20 @@ import java.util.List;
 
 public class StudentFormController {
 
-
     public TextField txtSearch;
-    @FXML
-    private TableColumn<?, ?> colAddress;
+    @FXML private TableColumn<?, ?> colAddress;
+    @FXML private TableColumn<?, ?> colId;
+    @FXML private TableColumn<?, ?> colName;
+    @FXML private TableColumn<?, ?> colRegisterDate;
+    @FXML private TableColumn<?, ?> colTel;
 
-    @FXML
-    private TableColumn<?, ?> colId;
-
-    @FXML
-    private TableColumn<?, ?> colName;
-
-    @FXML
-    private TableColumn<?, ?> colRegisterDate;
-
-    @FXML
-    private TableColumn<?, ?> colTel;
-
-    @FXML
-    private DatePicker registerDatePicker;
-
-    @FXML
-    private AnchorPane studentForm;
-
-    @FXML
-    private TableView<StudentTm> tblStudent;
-
-    @FXML
-    private TextField txtAddress;
-
-    @FXML
-    private TextField txtId;
-
-    @FXML
-    private TextField txtName;
-
-    @FXML
-    private TextField txtTel;
+    @FXML private DatePicker registerDatePicker;
+    @FXML private AnchorPane studentForm;
+    @FXML private TableView<StudentTm> tblStudent;
+    @FXML private TextField txtAddress;
+    @FXML private TextField txtId;
+    @FXML private TextField txtName;
+    @FXML private TextField txtTel;
 
     StudentBO studentBO = (StudentBO) BOFactory.getBO(BOFactory.BOType.STUDENT);
 
@@ -82,7 +58,7 @@ public class StudentFormController {
                     studentDTO.getName(),
                     studentDTO.getAddress(),
                     studentDTO.getTel(),
-                    studentDTO.getRegistrationDate(),
+                    (Date) studentDTO.getRegistrationDate(),
                     null
             ));
         }
@@ -136,7 +112,6 @@ public class StudentFormController {
             clearData();
             loadAllStudent();
 
-
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/paymentForm.fxml"));
                 Parent root = loader.load();
@@ -154,7 +129,6 @@ public class StudentFormController {
             new Alert(Alert.AlertType.WARNING, "Please Enter All Fields !!").show();
         }
     }
-
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
@@ -177,68 +151,53 @@ public class StudentFormController {
         }
     }
 
+
     public boolean isValidStudent() {
-        if (!Regex.setTextColor(lk.ijse.util.TextField.STUDENTID, txtId)) return false;
-        if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtName)) return false;
-        if (!Regex.setTextColor(lk.ijse.util.TextField.ADDRESS, txtAddress)) return false;
-        if (!Regex.setTextColor(lk.ijse.util.TextField.TEL, txtTel)) return false;
+        if (!Regex.setTextColor(Regex.FieldType.STUDENTID, txtId)) return false;
+        if (!Regex.setTextColor(Regex.FieldType.NAME, txtName)) return false;
+        if (!Regex.setTextColor(Regex.FieldType.ADDRESS, txtAddress)) return false;
+        if (!Regex.setTextColor(Regex.FieldType.TEL, txtTel)) return false;
         if (txtId.getText().isEmpty() || registerDatePicker.getValue() == null) return false;
         return true;
     }
 
-    @FXML
-    void txtAddressKeyAction(KeyEvent event) {
-        Regex.setTextColor(lk.ijse.util.TextField.ADDRESS, txtAddress);
+
+    @FXML void txtAddressKeyAction(KeyEvent event) {
+        Regex.setTextColor(Regex.FieldType.ADDRESS, txtAddress);
     }
 
-    @FXML
-    void txtNameKeyAction(KeyEvent event) {
-        Regex.setTextColor(lk.ijse.util.TextField.NAME, txtName);
+    @FXML void txtNameKeyAction(KeyEvent event) {
+        Regex.setTextColor(Regex.FieldType.NAME, txtName);
     }
 
-    @FXML
-    void txtTelKeyAction(KeyEvent event) {
-        Regex.setTextColor(lk.ijse.util.TextField.TEL, txtTel);
+    @FXML void txtTelKeyAction(KeyEvent event) {
+        Regex.setTextColor(Regex.FieldType.TEL, txtTel);
     }
 
-    @FXML
-    void txtIdKeyAction(KeyEvent event) {
-        Regex.setTextColor(lk.ijse.util.TextField.STUDENTID, txtId);
-    }
-
-    public void txtIdOnAction(ActionEvent actionEvent) {
-    }
-
-    public void txtNameOnAction(ActionEvent actionEvent) {
-    }
-
-    public void txtAddressOnAction(ActionEvent actionEvent) {
+    @FXML void txtIdKeyAction(KeyEvent event) {
+        Regex.setTextColor(Regex.FieldType.STUDENTID, txtId);
     }
 
     @FXML
     public void txtSearchKeyReleased(KeyEvent keyEvent) {
-        String searchText = txtSearch.getText().toLowerCase(); // search text
-
-        // Original list from DB
+        String searchText = txtSearch.getText().toLowerCase();
         List<StudentDTO> allStudent = studentBO.getAllStudent();
         ObservableList<StudentTm> filteredList = FXCollections.observableArrayList();
 
         for (StudentDTO studentDTO : allStudent) {
             if (studentDTO.getStudentId().toLowerCase().contains(searchText) ||
                     studentDTO.getName().toLowerCase().contains(searchText)) {
-
                 filteredList.add(new StudentTm(
                         studentDTO.getStudentId(),
                         studentDTO.getName(),
                         studentDTO.getAddress(),
                         studentDTO.getTel(),
-                        studentDTO.getRegistrationDate(),
+                        (Date) studentDTO.getRegistrationDate(),
                         null
                 ));
             }
         }
-
-        tblStudent.setItems(filteredList); // update TableView
+        tblStudent.setItems(filteredList);
     }
 
     private void generateStudentId() {
@@ -246,12 +205,4 @@ public class StudentFormController {
         txtId.setText(newId);
         txtId.setEditable(false);
     }
-
-
-
-
-
-
-
-
 }

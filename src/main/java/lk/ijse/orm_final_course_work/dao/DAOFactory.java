@@ -2,7 +2,7 @@ package lk.ijse.orm_final_course_work.dao;
 
 
 import lk.ijse.orm_final_course_work.dao.custom.impl.*;
-import lk.ijse.orm_final_course_work.dao.impl.PaymentDAOImpl;
+import lk.ijse.orm_final_course_work.dao.custom.impl.PaymentDAOImpl;
 
 public class DAOFactory {
 

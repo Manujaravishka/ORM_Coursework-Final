@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MainFormController {
 
@@ -49,7 +50,7 @@ public class MainFormController {
     public void initialize() {
         try {
             // Default load dashboard
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/loginForm2.fxml")));
+            changeForm.getChildren().setAll((Node) FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/loginForm2.fxml"))));
             highlightButton(btnDashboard);
         } catch (IOException e) {
             throw new RuntimeException(e);

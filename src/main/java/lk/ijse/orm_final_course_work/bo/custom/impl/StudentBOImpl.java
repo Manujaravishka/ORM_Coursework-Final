@@ -6,6 +6,7 @@ import lk.ijse.orm_final_course_work.dao.custom.StudentDAO;
 import lk.ijse.orm_final_course_work.dto.StudentDTO;
 import lk.ijse.orm_final_course_work.entity.Student;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class StudentBOImpl implements StudentBO {
                 dto.getName(),
                 dto.getAddress(),
                 dto.getTel(),
-                dto.getRegistrationDate()
+                (Date) dto.getRegistrationDate()
         );
         studentDAO.saveStudent(student);
     }
@@ -35,7 +36,7 @@ public class StudentBOImpl implements StudentBO {
                 dto.getName(),
                 dto.getAddress(),
                 dto.getTel(),
-                dto.getRegistrationDate()
+                (Date) dto.getRegistrationDate()
         );
         studentDAO.updateStudent(student);
     }
@@ -47,7 +48,7 @@ public class StudentBOImpl implements StudentBO {
                 dto.getName(),
                 dto.getAddress(),
                 dto.getTel(),
-                dto.getRegistrationDate()
+                (Date) dto.getRegistrationDate()
         );
         studentDAO.deleteStudent(student);
     }

@@ -19,6 +19,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import lk.ijse.orm_final_course_work.db.FactoryConfiguration;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.List;
@@ -91,7 +92,7 @@ public class Dashboard2Controller {
             studentTms.add(new StudyAllStudentTm(
                     studentDTO.getStudentId(),
                     studentDTO.getName(),
-                    studentDTO.getRegistrationDate()
+                    (Date) studentDTO.getRegistrationDate()
             ));
         }
         tblStudyAll.setItems(studentTms);

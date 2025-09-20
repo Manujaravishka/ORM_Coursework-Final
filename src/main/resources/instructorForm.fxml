@@ -4,91 +4,79 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="instructorForm" prefHeight="630.0" prefWidth="770.0"
-            style="-fx-background-color: #E6F2FF;"
-            xmlns="http://javafx.com/javafx/21"
+<AnchorPane fx:id="instructorForm" prefHeight="650.0" prefWidth="800.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #ffffff, #e6f2ff);"
+            xmlns="http://javafx.com/javafx/24.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="lk.ijse.orm_final_course_work.controller.InstructorFormController">
 
     <children>
         <!-- Header -->
-        <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="45.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@asset/icon/online-learning.png"/>
-            </image>
-        </ImageView>
-        <Label layoutX="113.0" layoutY="46.0" text="Instructor Manage">
-            <font>
-                <Font name="DejaVu Serif Condensed Bold" size="30.0"/>
-            </font>
-        </Label>
+        <HBox layoutX="40" layoutY="25" spacing="15"
+              style="-fx-background-color: rgba(0,0,0,0.7); -fx-background-radius: 15; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 3);">
+            <children>
+                <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@asset/icon/online-learning.png"/>
+                    </image>
+                </ImageView>
+                <Label text="Instructor Management" textFill="white">
+                    <font>
+                        <Font name="Arial Black" size="28"/>
+                    </font>
+                </Label>
+            </children>
+        </HBox>
 
-        <!-- Search Field -->
-        <Label layoutX="400.0" layoutY="142.0" text="Search:"/>
-        <TextField fx:id="txtSearch" layoutX="460.0" layoutY="138.0" prefWidth="250.0"
-                   onKeyReleased="#txtSearchKeyReleased"/>
+        <!-- Input Fields Card -->
+        <VBox layoutX="50" layoutY="120" spacing="15"
+              style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 5);">
+            <children>
+                <!-- ID & Search -->
+                <HBox spacing="20">
+                    <HBox spacing="15">
+                        <Label prefWidth="120" text="ID:"/>
+                        <TextField fx:id="txtInstructorId" editable="false" prefWidth="200" style="-fx-background-radius: 10; -fx-border-color: #CCC; -fx-padding: 6;"/>
+                    </HBox>
+                    <HBox spacing="15">
+                        <Label prefWidth="60" text="Search:"/>
+                        <TextField fx:id="txtSearch" onKeyReleased="#txtSearchKeyReleased" prefWidth="250" style="-fx-background-radius: 10; -fx-border-color: #CCC; -fx-padding: 6;"/>
+                    </HBox>
+                </HBox>
 
-        <!-- Input Fields -->
-        <Label layoutX="57.0" layoutY="142.0" text="ID:" />
-        <TextField fx:id="txtInstructorId" layoutX="128.0" layoutY="138.0" prefWidth="200.0" editable="false"/>
+                <!-- Name & Specialization -->
+                <HBox spacing="20">
+                    <HBox spacing="15">
+                        <Label prefWidth="120" text="Name:"/>
+                        <TextField fx:id="txtName" prefWidth="250" style="-fx-background-radius: 10; -fx-border-color: #CCC; -fx-padding: 6;"/>
+                    </HBox>
+                    <HBox spacing="15">
+                        <Label prefWidth="120" text="Specialization:"/>
+                        <TextField fx:id="txtSpecialization" prefWidth="250" style="-fx-background-radius: 10; -fx-border-color: #CCC; -fx-padding: 6;"/>
+                    </HBox>
+                </HBox>
+            </children>
+        </VBox>
 
-        <Label layoutX="57.0" layoutY="199.0" text="Name:" />
-        <TextField fx:id="txtName" layoutX="128.0" layoutY="195.0" prefWidth="200.0"/>
+        <!-- Buttons -->
+        <HBox layoutX="200" layoutY="300" spacing="15">
+            <JFXButton fx:id="btnClear" onAction="#btnClearOnAction" prefWidth="95" style="-fx-background-color: #95a5a6; -fx-background-radius: 12; -fx-text-fill: white;" text="Clear"/>
+            <JFXButton fx:id="btnUpdate" onAction="#btnUpdateOnAction" prefWidth="130" style="-fx-background-color: #3498db; -fx-background-radius: 12; -fx-text-fill: white;" text="Update"/>
+            <JFXButton fx:id="btnDelete" onAction="#btnDeleteOnAction" prefWidth="130" style="-fx-background-color: #e74c3c; -fx-background-radius: 12; -fx-text-fill: white;" text="Delete"/>
+            <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefWidth="130" style="-fx-background-color: #27ae60; -fx-background-radius: 12; -fx-text-fill: white;" text="Save"/>
+        </HBox>
 
-        <Label layoutX="57.0" layoutY="252.0" text="Specialization:" />
-        <TextField fx:id="txtSpecialization" layoutX="150.0" layoutY="248.0" prefWidth="200.0"/>
-
-        <!-- Action Buttons -->
-        <JFXButton fx:id="btnClear" layoutX="290.0" layoutY="309.0"
-                   onAction="#btnClearOnAction"
-                   prefHeight="35.0" prefWidth="85.0"
-                   style="-fx-background-color: #808080;"
-                   text="Clear" textFill="WHITE">
-            <font>
-                <Font name="DejaVu Serif Bold" size="15.0"/>
-            </font>
-        </JFXButton>
-
-        <JFXButton fx:id="btnUpdate" layoutX="390.0" layoutY="309.0"
-                   onAction="#btnUpdateOnAction"
-                   prefHeight="35.0" prefWidth="85.0"
-                   style="-fx-background-color: #1F45FC;"
-                   text="Update" textFill="WHITE">
-            <font>
-                <Font name="DejaVu Serif Bold" size="15.0"/>
-            </font>
-        </JFXButton>
-
-        <JFXButton fx:id="btnDelete" layoutX="490.0" layoutY="309.0"
-                   onAction="#btnDeleteOnAction"
-                   prefHeight="35.0" prefWidth="85.0"
-                   style="-fx-background-color: #E41B17;"
-                   text="Delete" textFill="WHITE">
-            <font>
-                <Font name="DejaVu Serif Bold" size="15.0"/>
-            </font>
-        </JFXButton>
-
-        <JFXButton fx:id="btnSave" layoutX="590.0" layoutY="309.0"
-                   onAction="#btnSaveOnAction"
-                   prefHeight="35.0" prefWidth="85.0"
-                   style="-fx-background-color: #228B22;"
-                   text="Save" textFill="WHITE">
-            <font>
-                <Font name="DejaVu Serif Bold" size="15.0"/>
-            </font>
-        </JFXButton>
-
-        <!-- Instructor Table -->
-        <TableView fx:id="tblInstructor" layoutX="57.0" layoutY="410.0" prefHeight="200.0" prefWidth="656.0"
-                   onMouseClicked="#tblInstructorOnClickAction">
+        <!-- Table -->
+        <TableView fx:id="tblInstructor" layoutX="50" layoutY="400" prefHeight="200" prefWidth="700"
+                   onMouseClicked="#tblInstructorOnClickAction"
+                   style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #DDD;">
             <columns>
-                <TableColumn fx:id="colId" prefWidth="120.0" text="ID"/>
-                <TableColumn fx:id="colName" prefWidth="200.0" text="Name"/>
-                <TableColumn fx:id="colSpecialization" prefWidth="200.0" text="Specialization"/>
+                <TableColumn fx:id="colId" prefWidth="120" text="ID"/>
+                <TableColumn fx:id="colName" prefWidth="200" text="Name"/>
+                <TableColumn fx:id="colSpecialization" prefWidth="200" text="Specialization"/>
             </columns>
         </TableView>
     </children>

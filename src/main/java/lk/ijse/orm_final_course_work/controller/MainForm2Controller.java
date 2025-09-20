@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MainForm2Controller {
 
@@ -49,7 +50,7 @@ public class MainForm2Controller {
     public void initialize() {
         try {
             // Default load dashboard
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(this.getClass().getResource("/dashboard.fxml")));
+            changeForm.getChildren().setAll((Node) FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/dashboard.fxml"))));
             highlightButton(btnDashboard);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -105,7 +106,7 @@ public class MainForm2Controller {
     /** Utility method to load forms & highlight active button */
     private void loadForm(String fxmlPath, JFXButton activeButton) {
         try {
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(getClass().getResource(fxmlPath)));
+            changeForm.getChildren().setAll((Node) FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlPath))));
             resetButtonStyles();
             highlightButton(activeButton);
         } catch (IOException e) {

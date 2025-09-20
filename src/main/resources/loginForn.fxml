@@ -15,7 +15,7 @@
         <!-- Background Image -->
         <ImageView fitHeight="250.0" fitWidth="250.0" layoutX="100.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../../../Downloads/ORM_Course_work/src/main/resources/assest/Driving School.jpg" />
+                <Image url="@assest/Driving School.jpg" />
             </image>
         </ImageView>
 

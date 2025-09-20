@@ -22,7 +22,7 @@
         </Label>
         <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="45.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@asset/icon/dashboard.png" />
+                <Image url="@assest/Driving School.jpg" />
             </image>
         </ImageView>
 

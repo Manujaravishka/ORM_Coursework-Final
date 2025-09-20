@@ -15,6 +15,9 @@ module lk.ijse.orm_final_course_work {
     opens lk.ijse.orm_final_course_work.controller to javafx.fxml;
     opens lk.ijse.orm_final_course_work to javafx.fxml;
 
-    // Add this line:
+    // Hibernate entity
     opens lk.ijse.orm_final_course_work.entity to org.hibernate.orm.core;
+
+    // TableView Tm classes
+    opens lk.ijse.orm_final_course_work.tdm to javafx.base;
 }

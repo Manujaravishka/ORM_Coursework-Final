@@ -1,38 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+
 <AnchorPane fx:id="lessonForm" prefHeight="630.0" prefWidth="770.0"
             style="-fx-background-color: #FFE5B4;"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="lk.ijse.orm_final_course_work.controller.LessonFormController">
 
-
-    <!-- Header -->
     <children>
-        <Label layoutX="113.0" layoutY="46.0" text="Lesson Manage">
-            <font>
-                <Font name="DejaVu Serif Condensed Bold" size="30.0"/>
-            </font>
-        </Label>
+        <!-- Header -->
         <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="45.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@asset/icon/lesson.png"/>
             </image>
         </ImageView>
+        <Label layoutX="113.0" layoutY="46.0" text="Lesson Manage">
+            <font>
+                <Font name="DejaVu Serif Condensed Bold" size="30.0"/>
+            </font>
+        </Label>
+
+        <!-- Search Field -->
+        <Label layoutX="400.0" layoutY="120.0" text="Search:"/>
+        <TextField fx:id="txtSearch" layoutX="460.0" layoutY="116.0" prefWidth="250.0"
+                   onKeyReleased="#txtSearchKeyReleased"/>
+
         <!-- Input Fields -->
-        <VBox layoutX="57.0" layoutY="120.0" spacing="15.0">
+        <VBox layoutX="57.0" layoutY="150.0" spacing="15.0">
             <children>
                 <HBox spacing="10.0">
                     <children>
                         <Label text="Lesson ID :" prefWidth="100.0"/>
                         <TextField fx:id="txtLessonId" prefWidth="200.0" editable="false"/>
                         <Label text="Lesson Date :" prefWidth="130.0"/>
-                        <DatePicker fx:id="dateLesson"/>
+                        <DatePicker fx:id="dateLesson" prefWidth="200.0"/>
                     </children>
                 </HBox>
 
@@ -40,11 +47,6 @@
                     <children>
                         <Label text="Student :" prefWidth="100.0"/>
                         <ComboBox fx:id="cmbStudent" prefWidth="200.0"/>
-                    </children>
-                </HBox>
-
-                <HBox spacing="10.0">
-                    <children>
                         <Label text="Course :" prefWidth="100.0"/>
                         <ComboBox fx:id="cmbCourse" prefWidth="200.0"/>
                     </children>
@@ -54,11 +56,6 @@
                     <children>
                         <Label text="Instructor :" prefWidth="100.0"/>
                         <ComboBox fx:id="cmbInstructor" prefWidth="200.0"/>
-                    </children>
-                </HBox>
-
-                <HBox spacing="10.0">
-                    <children>
                         <Label text="Time :" prefWidth="100.0"/>
                         <TextField fx:id="txtTime" promptText="HH:mm:ss" prefWidth="200.0"/>
                     </children>
@@ -74,39 +71,41 @@
         </VBox>
 
         <!-- Buttons -->
-        <HBox layoutX="320.0" layoutY="360.0" spacing="20.0">
+        <HBox layoutX="220.0" layoutY="360.0" spacing="20.0">
             <children>
-                <JFXButton layoutX="590.0" layoutY="309.0" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #228B22;" text="Save" textFill="WHITE">
+                <JFXButton fx:id="btnClear" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="85.0"
+                           style="-fx-background-color: #808080;" text="Clear" textFill="WHITE">
                     <font>
                         <Font name="DejaVu Serif Bold" size="15.0"/>
                     </font>
                 </JFXButton>
 
-                <JFXButton layoutX="490.0" layoutY="309.0" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #E41B17;" text="Delete" textFill="WHITE">
+                <JFXButton fx:id="btnUpdate" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="85.0"
+                           style="-fx-background-color: #1F45FC;" text="Update" textFill="WHITE">
                     <font>
                         <Font name="DejaVu Serif Bold" size="15.0"/>
                     </font>
                 </JFXButton>
 
-                <JFXButton layoutX="390.0" layoutY="309.0" onAction="#btnUpdateOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #1F45FC;" text="Update" textFill="WHITE">
+                <JFXButton fx:id="btnDelete" onAction="#btnDeleteOnAction" prefHeight="35.0" prefWidth="85.0"
+                           style="-fx-background-color: #E41B17;" text="Delete" textFill="WHITE">
                     <font>
                         <Font name="DejaVu Serif Bold" size="15.0"/>
                     </font>
                 </JFXButton>
 
-                <JFXButton layoutX="290.0" layoutY="309.0" onAction="#btnClearOnAction" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #808080;" text="Clear" textFill="WHITE">
+                <JFXButton fx:id="btnSave" onAction="#btnSaveOnAction" prefHeight="35.0" prefWidth="85.0"
+                           style="-fx-background-color: #228B22;" text="Save" textFill="WHITE">
                     <font>
                         <Font name="DejaVu Serif Bold" size="15.0"/>
                     </font>
                 </JFXButton>
-
             </children>
         </HBox>
 
         <!-- Table -->
-        <TableView fx:id="tblLesson" layoutX="57.0" layoutY="420.0"
-                   onMouseClicked="#tblLessonOnClickAction"
-                   prefHeight="180.0" prefWidth="700.0">
+        <TableView fx:id="tblLesson" layoutX="57.0" layoutY="420.0" prefHeight="180.0" prefWidth="700.0"
+                   onMouseClicked="#tblLessonOnClickAction">
             <columns>
                 <TableColumn fx:id="colLessonId" text="Lesson ID" prefWidth="100.0"/>
                 <TableColumn fx:id="colStudent" text="Student" prefWidth="120.0"/>

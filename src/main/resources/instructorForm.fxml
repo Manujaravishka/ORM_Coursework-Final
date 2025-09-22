@@ -20,7 +20,7 @@
             <children>
                 <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@asset/icon/online-learning.png"/>
+                        <Image url="@"/>
                     </image>
                 </ImageView>
                 <Label text="Instructor Management" textFill="white">

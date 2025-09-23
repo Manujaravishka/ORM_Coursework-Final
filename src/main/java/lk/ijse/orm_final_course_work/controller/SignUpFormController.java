@@ -3,12 +3,10 @@ package lk.ijse.orm_final_course_work.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.orm_final_course_work.bo.BOFactory;
@@ -17,7 +15,6 @@ import lk.ijse.orm_final_course_work.dto.UserDTO;
 import lk.ijse.orm_final_course_work.exception.ExceptionHandler;
 import lk.ijse.orm_final_course_work.exception.UserAlreadyExistsException;
 import lk.ijse.orm_final_course_work.util.PasswordStorage;
-import lk.ijse.orm_final_course_work.util.Regex;
 
 import java.io.IOException;
 
@@ -54,9 +51,9 @@ public class SignUpFormController {
     }
 
     @FXML
-    void backToLoginOnAction(MouseEvent event) {
+    void backToLoginOnAction(ActionEvent event) {
         try {
-            Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/loginForm.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/loginForn.fxml")));
             Stage stage = (Stage) signUpForm.getScene().getWindow();
             stage.setScene(scene);
             stage.show();

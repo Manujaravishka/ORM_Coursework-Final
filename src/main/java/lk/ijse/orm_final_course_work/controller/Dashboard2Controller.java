@@ -2,6 +2,7 @@ package lk.ijse.orm_final_course_work.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
@@ -64,11 +65,7 @@ public class Dashboard2Controller {
 
     @FXML
     public void initialize() {
-        setCellValueFactory();
-        setTotals();
-        loadTableData();
-        loadStudentChart();
-        loadIncome();
+
     }
 
     private void setCellValueFactory() {
@@ -165,5 +162,8 @@ public class Dashboard2Controller {
         } finally {
             session.close();
         }
+    }
+
+    public void goBackOnAction(ActionEvent actionEvent) {
     }
 }

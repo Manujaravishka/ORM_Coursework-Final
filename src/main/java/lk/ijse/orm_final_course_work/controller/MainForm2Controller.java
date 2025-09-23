@@ -1,6 +1,5 @@
 package lk.ijse.orm_final_course_work.controller;
 
-
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,9 +10,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
-import java.util.Objects;
+import java.net.URL;
 
 public class MainForm2Controller {
 
@@ -48,13 +46,7 @@ public class MainForm2Controller {
     private AnchorPane dashboardFrom;
 
     public void initialize() {
-        try {
-            // Default load dashboard
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/dashboard.fxml"))));
-            highlightButton(btnDashboard);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        loadForm("/dashboard.fxml", btnDashboard);
     }
 
     @FXML
@@ -72,9 +64,6 @@ public class MainForm2Controller {
         loadForm("/studentForm.fxml", btnStudent);
     }
 
-
-
-
     @FXML
     void btnInstructorOnAction(ActionEvent event) {
         loadForm("/instructorForm.fxml", btnInstructor);
@@ -91,22 +80,43 @@ public class MainForm2Controller {
     }
 
     @FXML
+    void btnSettingOnAction(ActionEvent event) {
+        loadForm("/settingForm.fxml", btnSetting);
+    }
+
+    @FXML
+    void btnViewOnAction(ActionEvent event) {
+        // Optional action
+    }
+
+    @FXML
     void logOutAction(MouseEvent event) {
         try {
-            Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/loginForm.fxml")));
+            URL resource = getClass().getResource("/loginForm.fxml");
+            if (resource == null) {
+                System.err.println("Login FXML not found!");
+                return;
+            }
+            Scene scene = new Scene(FXMLLoader.load(resource));
             Stage stage = (Stage) dashboardFrom.getScene().getWindow();
             stage.setScene(scene);
             stage.centerOnScreen();
             stage.show();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
-    /** Utility method to load forms & highlight active button */
+    /** Safe form loader */
     private void loadForm(String fxmlPath, JFXButton activeButton) {
         try {
-            changeForm.getChildren().setAll((Node) FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlPath))));
+            URL resource = getClass().getResource(fxmlPath);
+            if (resource == null) {
+                System.err.println("FXML file not found: " + fxmlPath);
+                return;
+            }
+            Node loadedForm = FXMLLoader.load(resource);
+            changeForm.getChildren().setAll(loadedForm);
             resetButtonStyles();
             highlightButton(activeButton);
         } catch (IOException e) {
@@ -114,34 +124,28 @@ public class MainForm2Controller {
         }
     }
 
-    private void highlightButton(JFXButton button){
-        button.setStyle("-fx-background-color: #468A9A; -fx-text-fill: #FFFFFF; -fx-border-color: #FFFFFF; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-radius: 10;");
+    /** Highlight active button */
+    private void highlightButton(JFXButton button) {
+        if (button != null) {
+            button.setStyle("-fx-background-color: #468A9A; -fx-text-fill: #FFFFFF; "
+                    + "-fx-border-color: #FFFFFF; -fx-border-width: 3; "
+                    + "-fx-border-radius: 5; -fx-background-radius: 10;");
+        }
     }
 
-    private void resetButtonStyles(){
-        String style = "-fx-background-color: #26667F; -fx-text-fill: #000000; -fx-border-color: #FFFFFF; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-radius: 10;";
-        btnDashboard.setStyle(style);
-        btnProgram.setStyle(style);
-        btnStudent.setStyle(style);
+    /** Null-safe reset button styles */
+    private void resetButtonStyles() {
+        String style = "-fx-background-color: #26667F; -fx-text-fill: #000000; "
+                + "-fx-border-color: #FFFFFF; -fx-border-width: 3; "
+                + "-fx-border-radius: 5; -fx-background-radius: 10;";
 
-
-        btnInstructor.setStyle(style);
-        btnPayment.setStyle(style);
-        btnLessons.setStyle(style);
+        if (btnDashboard != null) btnDashboard.setStyle(style);
+        if (btnProgram != null) btnProgram.setStyle(style);
+        if (btnStudent != null) btnStudent.setStyle(style);
+        if (btnInstructor != null) btnInstructor.setStyle(style);
+        if (btnPayment != null) btnPayment.setStyle(style);
+        if (btnLessons != null) btnLessons.setStyle(style);
+        if (btnSetting != null) btnSetting.setStyle(style);
+        if (btnView != null) btnView.setStyle(style);
     }
-
-
-    public void btnViewOnAction(ActionEvent actionEvent) {
-    }
-
-    public void btnSettingOnAction(ActionEvent actionEvent) {
-        loadForm("/settingForm.fxml", btnSetting);
-    }
-
-
-
-
-
-
 }
-

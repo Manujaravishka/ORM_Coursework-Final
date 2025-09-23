@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.orm_final_course_work.bo.BOFactory;
 import lk.ijse.orm_final_course_work.bo.custom.InstructorBO;
 import lk.ijse.orm_final_course_work.dto.InstructorDTO;
@@ -14,6 +15,7 @@ import lk.ijse.orm_final_course_work.dto.InstructorDTO;
 public class InstructorFormController {
 
     public TextField txtSearch;
+    public AnchorPane instructorForm;
     @FXML
     private TextField txtInstructorId;
     @FXML

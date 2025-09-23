@@ -8,59 +8,39 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardFrom" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: white;" stylesheets="menu.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_final_course_work.controller.MainForm2Controller">
+<AnchorPane fx:id="dashboardFrom" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #456882;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_final_course_work.controller.MainForm2Controller">
+
     <children>
-        <AnchorPane fx:id="changeForm" layoutX="219.0" layoutY="10.0" prefHeight="630.0" prefWidth="770.0" style="-fx-background-color: #468A9A;" />
-        <ImageView fitHeight="254.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@asset/b309d6ac516610c8ae112e9e677db21a.jpg" />
-            </image>
-        </ImageView>
+        <!-- Main Content Area -->
+        <AnchorPane fx:id="changeForm" layoutX="220.0" layoutY="10.0" prefHeight="630.0" prefWidth="770.0" style="-fx-background-color: wite; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2),10,0,2,2);" />
 
-        <!-- Buttons moved further upwards -->
-        <VBox layoutX="12.0" layoutY="23.0" prefHeight="547.0" prefWidth="195.0">
+        <!-- Logo / Image -->
+
+        <!-- Sidebar Menu -->
+        <VBox layoutX="12.0" layoutY="220.0" prefWidth="200.0" spacing="12.0">
             <children>
-                <JFXButton fx:id="btnDashboard" onAction="#btnDashboardOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #468A9A; -fx-border-width: 3;                        -fx-border-radius: 5; -fx-background-radius: 10;" text="Dashboard">
+                <JFXButton fx:id="btnDashboard" onAction="#btnDashboardOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #1976d2; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text="Dashboard">
                     <font>
-                        <Font name="System Bold" size="17.0" />
-                    </font>
-                </JFXButton>
-                <JFXButton fx:id="btnStudent" onAction="#btnStudentOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #468A9A; -fx-border-width: 3;                        -fx-background-radius: 10; -fx-border-radius: 5;" text="Manage Student">
-                    <font>
-                        <Font name="System Bold" size="17.0" />
-                    </font>
-                </JFXButton>
-                <JFXButton fx:id="btnProgram" onAction="#btnProgramOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #468A9A; -fx-border-width: 3;                        -fx-background-radius: 10; -fx-border-radius: 5;" text="Manage Course">
-                    <font>
-                        <Font name="DejaVu Sans Bold" size="17.0" />
-                    </font>
-                </JFXButton>
-                <JFXButton fx:id="btnInstructor" onAction="#btnInstructorOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #468A9A; -fx-border-width: 3;                        -fx-background-radius: 10; -fx-border-radius: 5;" text="Manage Instructor">
-                    <font>
-                        <Font size="17.0" />
-                    </font>
-                </JFXButton>
-                <JFXButton fx:id="btnPayment" onAction="#btnPaymentOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #468A9A; -fx-border-width: 3;                        -fx-background-radius: 10; -fx-border-radius: 5;" text="Manage Payment">
-                    <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="17.0" />
-                    </font>
-                </JFXButton>
-                <JFXButton fx:id="btnLessons" onAction="#btnLessonsOnAction" prefHeight="50.0" prefWidth="199.0" style="-fx-border-color: white; -fx-background-color: #468A9A; -fx-border-width: 3;                        -fx-background-radius: 10; -fx-border-radius: 5;" text="Manage Lessons">
-                    <font>
-                        <Font name="NimbusSans-Bold" size="17.0" />
+                        <Font name="System Bold" size="15.0" />
                     </font>
                 </JFXButton>
 
+                <JFXButton fx:id="btnStudent" onAction="#btnStudentOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #42a5f5; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text="Manage Student" />
+
+                <JFXButton fx:id="btnProgram" onAction="#btnProgramOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #42a5f5; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text="Manage Course" />
+
+                <JFXButton fx:id="btnInstructor" onAction="#btnInstructorOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #42a5f5; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text="Manage Instructor" />
+
+                <JFXButton fx:id="btnPayment" onAction="#btnPaymentOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #42a5f5; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text="Manage Payment" />
+
+                <JFXButton fx:id="btnLessons" onAction="#btnLessonsOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #42a5f5; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text="Manage Lessons" />
             </children>
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
         </VBox>
 
-        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="92.0" layoutY="590.0" onMouseClicked="#logOutAction" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@asset/icon/icons8-log-out-48.png" />
-            </image>
-        </ImageView>
+        <!-- Logout Button (Icon) -->
+
     </children>
 </AnchorPane>

@@ -19,11 +19,7 @@
         <HBox layoutX="40.0" layoutY="25.0" spacing="15.0"
               style="-fx-background-color: rgba(0,0,0,0.75); -fx-background-radius: 15; -fx-padding: 15;">
             <children>
-                <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
-                    <image>
-                        <Image url="@asset/icon/icons8-setting-48.png"/>
-                    </image>
-                </ImageView>
+
                 <Label text="Settings" textFill="white">
                     <font>
                         <Font name="Arial Black" size="26.0"/>

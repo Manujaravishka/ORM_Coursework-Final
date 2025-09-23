@@ -217,4 +217,6 @@ public class CourseFormController {
         tblProgram.setItems(filteredList);
     }
 
+    public void tblCourseOnClickAction(MouseEvent mouseEvent) {
+    }
 }

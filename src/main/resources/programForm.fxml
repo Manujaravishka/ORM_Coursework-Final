@@ -18,11 +18,7 @@
         <!-- Header -->
         <HBox layoutX="40" layoutY="25" spacing="15" style="-fx-background-color: rgba(0,0,0,0.7); -fx-background-radius: 15; -fx-padding: 15;">
             <children>
-                <ImageView fitHeight="70" fitWidth="70" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@asset/icons8-student-48.png" />
-                    </image>
-                </ImageView>
+
                 <Label text="Program Management" textFill="white">
                     <font>
                         <Font name="Arial Black" size="28" />

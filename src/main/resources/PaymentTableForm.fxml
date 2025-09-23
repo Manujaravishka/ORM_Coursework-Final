@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="678.0" prefWidth="820.0" style="-fx-background-color: linear-gradient(to bottom, #BBDCE5, #FFFFFF);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PaymentTableFormController">
+<AnchorPane prefHeight="678.0" prefWidth="820.0" style="-fx-background-color: linear-gradient(to bottom, #BBDCE5, #FFFFFF);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.orm_final_course_work.controller.PaymentTableFormController">
 
     <!-- Header -->
     <HBox layoutX="50.0" layoutY="20.0" spacing="10.0">

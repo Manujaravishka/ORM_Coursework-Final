@@ -17,6 +17,7 @@ import java.util.Objects;
 
 public class MainFormController {
 
+    public JFXButton btnPayment1;
     @FXML
     private JFXButton btnDashboard;
 
@@ -96,6 +97,11 @@ public class MainFormController {
     void btnLessonsOnAction(ActionEvent event) {
         loadForm("/lessonForm.fxml", btnLessons);
     }
+    @FXML
+    public void btnPaymentssssOnAction(ActionEvent actionEvent) {
+        loadForm("/PaymentForm.fxml", btnPayment);
+
+    }
 
     @FXML
     void logOutAction(MouseEvent event) {
@@ -136,5 +142,6 @@ public class MainFormController {
         btnPayment.setStyle(style);
         btnLessons.setStyle(style);
     }
+
 
 }

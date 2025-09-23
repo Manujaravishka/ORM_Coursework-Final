@@ -15,6 +15,7 @@ import java.net.URL;
 
 public class MainForm2Controller {
 
+    public JFXButton btnPayment1;
     @FXML
     private JFXButton btnDashboard;
 
@@ -83,6 +84,10 @@ public class MainForm2Controller {
     void btnSettingOnAction(ActionEvent event) {
         loadForm("/settingForm.fxml", btnSetting);
     }
+    @FXML
+    public void btnPaymentssOnAction(ActionEvent actionEvent) {
+        loadForm("/PaymentForm.fxml", btnSetting);
+    }
 
     @FXML
     void btnViewOnAction(ActionEvent event) {
@@ -148,4 +153,6 @@ public class MainForm2Controller {
         if (btnSetting != null) btnSetting.setStyle(style);
         if (btnView != null) btnView.setStyle(style);
     }
+
+
 }

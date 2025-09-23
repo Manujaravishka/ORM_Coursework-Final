@@ -2,8 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -31,7 +29,8 @@
 
                 <JFXButton fx:id="btnInstructor" onAction="#btnInstructorOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #42a5f5; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text="Manage Instructor" />
 
-                <JFXButton fx:id="btnPayment" onAction="#btnPaymentOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #42a5f5; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text="Manage Payment" />
+                <JFXButton fx:id="btnPayment" onAction="#btnPaymentOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #42a5f5; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text=" Payment Tabale" />
+            <JFXButton fx:id="btnPayment1" onAction="#btnPaymentssOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #42a5f5; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text=" Payment " />
 
                 <JFXButton fx:id="btnLessons" onAction="#btnLessonsOnAction" prefHeight="45.0" prefWidth="180.0" style="-fx-background-color: #42a5f5; -fx-text-fill: white;                                   -fx-background-radius: 10; -fx-cursor: hand;" text="Manage Lessons" />
             </children>

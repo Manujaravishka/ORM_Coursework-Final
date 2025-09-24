@@ -113,7 +113,7 @@ public class StudentFormController {
             loadAllStudent();
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/paymentForm.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/PaymentForm.fxml"));
                 Parent root = loader.load();
 
                 Stage stage = new Stage();

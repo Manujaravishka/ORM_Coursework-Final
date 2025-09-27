@@ -157,7 +157,7 @@ public class CourseFormController {
         }
     }
 
-    // ✅ Fixed validation using Regex.FieldType
+    //  Fixed validation using Regex.FieldType
     public boolean isValied() {
         if (!Regex.setTextColor(Regex.FieldType.NAME, txtName)) return false;
         if (!Regex.setTextColor(Regex.FieldType.MONTH, txtDuration)) return false;

@@ -5,12 +5,11 @@ import lk.ijse.orm_final_course_work.bo.custom.CourseBO;
 import lk.ijse.orm_final_course_work.dao.DAOFactory;
 import lk.ijse.orm_final_course_work.dao.custom.CourseDAO;
 import lk.ijse.orm_final_course_work.dto.courseDTO;
-import lk.ijse.orm_final_course_work.dto.courseDTO;
 import lk.ijse.orm_final_course_work.entity.course;
 
 import java.util.ArrayList;
 import java.util.List;
-import lk.ijse.orm_final_course_work.bo.custom.CourseBO;
+
 
 public class CourseBOImpl implements CourseBO {
 
